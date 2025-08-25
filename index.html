@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Índice de Brainrots</title>
@@ -8,6 +9,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
+
 <body>
   <!-- Botón fijo: ahora dice “Cuentas” -->
   <button id="add-account-btn">Cuentas</button>
@@ -15,6 +17,13 @@
   <div class="container">
     <!-- Menú lateral -->
     <div class="sidebar">
+      <div class="search-container">
+        <div class="search-box">
+          <i class='bx bx-search'></i> <!-- icono Boxicons -->
+          <input type="text" id="brainrot-search" placeholder="Buscar Brainrot...">
+          <div id="suggestions"></div>
+        </div>
+      </div>
       <ul id="menu">
         <li class="active" data-type="normal">Normal</li>
         <li data-type="oro">Oro</li>
@@ -69,4 +78,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
