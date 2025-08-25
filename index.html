@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Índice de Brainrots</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+  <!-- Botón fijo: ahora dice “Cuentas” -->
+  <button id="add-account-btn">Cuentas</button>
+
+  <div class="container">
+    <!-- Menú lateral -->
+    <div class="sidebar">
+      <ul id="menu">
+        <li class="active" data-type="normal">Normal</li>
+        <li data-type="oro">Oro</li>
+        <li data-type="diamante">Diamante</li>
+        <li data-type="rainbow">Rainbow</li>
+        <li data-type="lava">Lava</li>
+        <li data-type="galaxy">Galaxy</li>
+      </ul>
+    </div>
+
+    <!-- Área principal -->
+    <div class="main">
+      <div id="brainrot-grid" class="grid"></div>
+
+      <!-- Barra de progreso -->
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div id="progress-fill"></div>
+          <span id="progress-text">0 / 98</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de cuentas -->
+  <div id="accounts-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Cuentas</h2>
+        <button id="close-accounts-modal" class="btn-secondary">Cerrar</button>
+      </div>
+
+      <div class="modal-section">
+        <h3>Añadir cuenta</h3>
+        <div class="row">
+          <input type="text" id="account-name-input" placeholder="Nombre de la cuenta" />
+          <input type="text" id="account-owner-input" placeholder="Dueño de la cuenta">
+          <button id="add-account-confirm" class="btn-primary">Añadir</button>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3>Mis cuentas</h3>
+        <ul id="accounts-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase (compat que ya usabas) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
