@@ -460,3 +460,59 @@ document.querySelectorAll("#menu li").forEach(li => {
     renderBrainrots();
   });
 });
+
+const searchInput = document.getElementById("brainrot-search");
+const suggestionsDiv = document.getElementById("suggestions");
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  suggestionsDiv.innerHTML = "";
+
+  if (!query) {
+    suggestionsDiv.style.display = "none";
+    return;
+  }
+
+  const matches = brainrotList.filter(name => name.toLowerCase().includes(query));
+  if (!matches.length) {
+    suggestionsDiv.style.display = "none";
+    return;
+  }
+
+  matches.forEach(name => {
+    const div = document.createElement("div");
+    div.textContent = name;
+    div.addEventListener("click", () => {
+      searchInput.value = name;
+      suggestionsDiv.innerHTML = "";
+      suggestionsDiv.style.display = "none";
+      scrollToBrainrot(name);
+    });
+    suggestionsDiv.appendChild(div);
+  });
+
+  suggestionsDiv.style.display = "block";
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target !== searchInput) suggestionsDiv.innerHTML = "";
+});
+
+function scrollToBrainrot(name) {
+  const brainrots = document.querySelectorAll(".brainrot");
+  for (let box of brainrots) {
+    const boxName = box.querySelector(".brainrot-name").textContent;
+    if (boxName === name) {
+      box.scrollIntoView({ behavior: "smooth", block: "center" });
+      // opcional: resaltar borde temporal
+      const originalBorderColor = box.style.borderColor;
+      box.style.borderColor = "#f39c12";
+      box.style.borderStyle = "solid";
+      setTimeout(() => {
+        box.style.borderColor = originalBorderColor;
+        if (!originalBorderColor) box.style.borderStyle = "";
+      }, 2000);
+      break;
+    }
+  }
+}
