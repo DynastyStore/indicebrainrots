@@ -144,11 +144,8 @@ const brainrotImages = [
   "images/Dragon_Cannelloni.png"
 ];
 
-
-
-
 const totalBrainrots = brainrotList.length;
-const TOTAL_REQUERIDOS = 98;
+const TOTAL_REQUERIDOS = 92;
 
 const brainrotGrid = document.getElementById("brainrot-grid");
 const progressText = document.getElementById("progress-text");
